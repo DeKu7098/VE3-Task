@@ -1,5 +1,7 @@
 import { useState } from "react";
 import "./Page.css";
+import { Header } from "./Header";
+import SearchButton from "./SearchButton";
 
 function Page2() {
   const [toggleState, setToggleState] = useState(1);
@@ -10,9 +12,14 @@ function Page2() {
 
   return (
     <div className="container1">
-      <br />
-      <h3>Module Two</h3>
-      <br />
+      <br/>
+        <div className="inline">
+        <h2>Module Two</h2>
+        <div className="rightt">
+        <SearchButton />
+        <Header />
+        </div>
+        </div>
       <div className="bloc-tabs">
         <button
           className={toggleState === 1 ? "tabs active-tabs" : "tabs"}

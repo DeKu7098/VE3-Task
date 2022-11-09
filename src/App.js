@@ -7,6 +7,7 @@ import Page5 from "./Page5";
 import Page4 from "./Page4";
 import Page3 from "./Page3";
 import Page2 from "./Page2";
+import { SearchPage } from "./SearchPage";
 
 function App() {
   return (
@@ -28,6 +29,9 @@ function App() {
       </Route>
       <Route path="/Page5" exact>
         <Page5 />
+      </Route>
+      <Route path="/SearchPage" exact>
+        <SearchPage />
       </Route>
     </Switch>
   );
