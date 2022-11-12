@@ -6,27 +6,27 @@ import './Search.css';
 
 
 export const SearchPage = () => {
-  const [posts, setPosts] = useState([]);
-  const [searchTitle, setSearchTitle] = useState("");
+  const [users, setusers] = useState([]);
+  const [item, setitem] = useState("");
 
 
   useEffect(() => {
     let arr=[]
-    const loadPosts = async () => {
+    const loadusers = async () => {
       const response = await axios.get(
         "https://jsonplaceholder.typicode.com/users"
       );
-      setPosts(response.data);
+      setusers(response.data);
       for(let i=0;i<11;i++){
         arr.push(response.data[i].name)
       }
-      setPosts(arr)
+      setusers(arr)
       console.log(response.data[1].name);
       console.log(response.data.length)
       
     };
 
-    loadPosts();
+    loadusers();
   }, []);
 
   return (
@@ -38,14 +38,14 @@ export const SearchPage = () => {
       <input
         type="text"
         placeholder="Type To Search..."
-        onChange={(e) => setSearchTitle(e.target.value)}
+        onChange={(e) => setitem(e.target.value)}
       />
-      {posts
+      {users
           .filter((value) => {
-            if (searchTitle === "") {
+            if (item === "") {
               return null;
             } else if (
-              value.name.toLowerCase().includes(searchTitle.toLowerCase())
+              value.name.toLowerCase().includes(item.toLowerCase())
             ) {
               return value;
             }
